@@ -4,6 +4,9 @@ from ...interfaces import Exchange
 from ....utils import Fetch
 
 class Localbitcoins(Exchange):
+    def get_prices():
+        raise 'Method Not Implemented'
+    
     def send(self, body):
         try:
             fetch = Fetch(f'{HOST_URI}{send_path}', 'POST', body)

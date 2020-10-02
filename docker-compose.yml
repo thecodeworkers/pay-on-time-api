@@ -1,20 +1,6 @@
 version: '3'
 
 services:
-  rabbitmq:
-    container_name: pay_on_time_rabbitmq
-    image: rabbitmq:3.8-management-alpine
-    ports:
-      - '5672:5672'
-      - '15672:15672'
-      - '15671:15671'
-
-  mongodb:
-    container_name: pay_on_time_mongodb
-    image: mongo:4.2.8-bionic
-    ports:
-      - '27017:27017'
-
   providers_microservice:
     container_name: providers_microservice
     build: ./providers-microservice
@@ -22,8 +8,6 @@ services:
       - ./providers-microservice:/usr/app
     ports:
       - '50052:50052'
-    depends_on:
-      - mongodb
   
   gateway:
     container_name: pay_on_time_gateway

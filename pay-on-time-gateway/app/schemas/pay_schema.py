@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields, ValidationError, validate
+from marshmallow import Schema, fields, validate
 
 class SendMoneyInput(Schema):
     address = fields.Str(required=True)

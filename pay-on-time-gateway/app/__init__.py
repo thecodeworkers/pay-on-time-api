@@ -3,7 +3,7 @@ from grpc import RpcError, insecure_channel
 from google.protobuf.json_format import MessageToDict
 from marshmallow import ValidationError
 from .protos import ExchangeStub, SendCryptoRequest
-from .constants import HOST, PORT, DEBUG
+from .constants import HOST, PORT, DEBUG, PROVIDER_HOST
 from .schemas import SendMoneyInput, PayrollInput
 from .utils import error_response
 from .bootstrap import app
@@ -49,7 +49,7 @@ def payroll():
 
 
 def send(address, amount):
-    channel = insecure_channel('providers_microservice:50052')
+    channel = insecure_channel(PROVIDER_HOST)
     stub = ExchangeStub(channel)
 
     request_grpc = SendCryptoRequest(address=address, amount=amount)

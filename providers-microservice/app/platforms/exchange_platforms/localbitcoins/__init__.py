@@ -5,7 +5,7 @@ from ....utils import Fetch
 
 class Localbitcoins(Exchange):
     def get_prices(self):
-        prices = fetch(tickers)
+        prices = {}
 
         return {
             'result': {

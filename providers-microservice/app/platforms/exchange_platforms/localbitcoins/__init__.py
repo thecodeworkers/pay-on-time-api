@@ -4,15 +4,6 @@ from ...interfaces import Exchange
 from ....utils import Fetch
 
 class Localbitcoins(Exchange):
-    def get_prices(self):
-        prices = {}
-
-        return {
-            'result': {
-                'BTC': prices['USD']['avg_1h']
-            }
-        }
-
     def send(self, body):
         try:
             fetch = Fetch(f'{HOST_URI}{send_path}', 'POST', body)
